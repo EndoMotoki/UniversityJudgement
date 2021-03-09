@@ -1,29 +1,83 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>運命のジャッジメント</title>
+        <title>スクエアジャッジメント</title>
         <meta name="description" content="進級・卒業判定サービスfor岩手県立大学">
         <meta name="keywords" content="運命のジャッジメント,運命ジャッジメント,岩手県立大学,岩手県立大学単位">
         <meta name="author" content="EndoMotoki">
         <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/main.css">
-
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="css/inter.css">
     </head>
 
     <body>
-        <h1 class="title">運命のジャッジメント</h1>
-        <h2 class="title">進級ジャッジ</h2>
+        <h1 class="display-3">進級ジャッジ</h1>
+        <br>
+        <h3>進級ジャッジは1~3年生のみです。4年生は卒業ジャッジをご利用ください。</h3>
+<br>
+    <h3>以下のフォームを入力し終わったら「ジャッジ」を押してください。</h3>
+    <br>
+    <h2 class="display-4">あなたの学年を選択してください</h2>
+    <div class="col-md-5 mb-3">
+        <select class="custom-select d-block w-100" id="grade">
+          <option value="1">1年生</option>
+          <option value="2">2年生</option>
+          <option value="3">3年生</option>
+        </select>
+      </div>
 
-        <h3>あなたの現在の状況を選択してください</h3>
+      <h2 class="display-4">修得済みの単位を入力してください</h2>
+      <div class="input-group mb-5">
+        <input class="form-control form-control-lg" type="tel" placeholder="単位を入力してください" id="credit" maxlength="3">
+      </div>
+          <!--ボタンを中央に配置-->
+      <div class="col text-center mb-4">
+        <button class="btn btn-primary btn-lg btn-block" id="result">ジャッジ！</button> <!--ボタンを横いっぱいに配置-->
+      </div>
 
-        <h3>後期時点での単位数を入力してください</h3>
 
-        <h3>学部を選択してください</h3>
+      <script>
+          var result = document.getElementById("result");
+          result.addEventListener("click",function(a){
+              a.preventDefault();
+              var grade = document.getElementById("grade").value;
+              var credit = document.getElementById("credit").value;
+              var promotion;
+              if (grade==1) {
+                  if (credit >= 20){
+                      promotion = 1;
+                      alert('進級(2年生へ)');
 
-        
-
-
+                  }
+                  if (credit < 20){
+                      promotion = 0;
+                      alert('留年')
+                  }
+              }
+              else if (grade==2) {
+                  if (credit >= 66){
+                      promotion = 1;
+                      alert('進級(3年生へ)')
+                  }
+                  if (credit < 66){
+                      promotion = 0;
+                      alert('留年')
+                  }
+              }
+              else if (grade==3) {
+                  if (credit >= 99){
+                      promotion = 1;
+                      alert('進級(4年生へ)')
+                  }
+                  if (credit < 99){
+                      promotion = 0;
+                      alert('留年')
+                  }
+              }
+          });
+      </script>
 
     </body>
 </html>
