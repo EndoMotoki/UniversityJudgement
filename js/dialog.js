@@ -1,5 +1,5 @@
 function promotion(){
-    if(window.confirm('当サービスの結果は100%正確とは限らないため、如何なる結果でも必ずご自身でもチェックをしてください。同意できますか？')) {
+    if(window.confirm('当サービスの結果は100%正確とは限らないため、如何なる結果でも必ずご自身でチェックをしてください。同意できますか？')) {
         location.href = "promotion.html";
     }
     else {
@@ -9,7 +9,7 @@ function promotion(){
 }
 
 function graduation(){
-    if(window.confirm('当サービスの結果は100%正確とは限らないため、如何なる結果でも必ずご自身でもチェックをしてください。同意できますか？')) {
+    if(window.confirm('当サービスの結果は100%正確とは限らないため、如何なる結果でも必ずご自身でチェックをしてください。同意できますか？')) {
         location.href = "graduation.html";
     }
     else {

@@ -16,23 +16,33 @@
     <body>
         <h1 class="display-4">進級ジャッジ</h1>
         <br>
-        <h3 class="center">進級ジャッジは1~3年生のみです。</h3>
+        <h3 class="center">進級ジャッジは1~3年生が対象です。</h3>
         <h3 class="center">4年生は卒業ジャッジをご利用ください。</h3>
-<br><br>
+<br>
     <h2 class="display-4">あなたの学年を選択してください</h2>
-    <div class="col-md-5 mb-3">
+    <div class="input-group mb-5">
         <select class="form-control form-control-lg big" id="grade">
           <option value="1">1年生</option>
           <option value="2">2年生</option>
           <option value="3">3年生</option>
         </select>
-      </div>
+    </div>
 <br>
       <h2 class="display-4">修得済みの単位を入力してください</h2>
       <div class="input-group mb-5">
         <input class="form-control form-control-lg" type="tel" placeholder="単位を入力してください" id="credit" maxlength="3">
       </div>
+        <h2 class="display-4">(現在3年生の方へ)所属講座のシステム演習Ⅰ,Ⅱの単位を修得しましたか？</h2>
+        <div class="input-group mb-5">
+            <select class="form-control form-control-lg big" id="check_promotion">
+                <option value="0">3年生は選択してください</option>
+                <option value="1">はい</option>
+                <option value="2">いいえ</option>
+            </select>
+        </div>
           <!--ボタンを中央に配置-->
+        <br>
+        <br>
       <div class="col text-center mb-4">
         <button class="btn btn-primary btn-lg btn-block" id="result">ジャッジ！</button> <!--ボタンを横いっぱいに配置-->
       </div>
@@ -44,22 +54,19 @@
               a.preventDefault();
               var grade = document.getElementById("grade").value;
               var credit = document.getElementById("credit").value;
-              var promotion;
+              var zemi = document.getElementById("check_promotion").value;
               if (grade==1) {
                   if (credit >= 20){
-                      promotion = 1;
-                      swal('進級(2年生へ)');
+                      swal('2年生へ進級');
 
                   }
                   if (credit < 20){
-                      promotion = 0;
                       swal('留年');
                   }
               }
               else if (grade==2) {
                   if (credit >= 66){
-                      promotion = 1;
-                      swal('進級(3年生へ)');
+                      swal('3年生へ進級');
                   }
                   if (credit < 66){
                       promotion = 0;
@@ -67,18 +74,22 @@
                   }
               }
               else if (grade==3) {
-                  if (credit >= 99){
-                      promotion = 1;
-                      swal('進級(4年生へ)');
+                  if (credit >= 99 && zemi == 1){
+                      swal('4年生へ進級\n(進級単位を満たし、システム演習I,IIを修得済みのため)');
+                  }
+                  if (credit >= 99 && zemi == 2){
+                      swal('留年\n(進級単位は満たしているが、システム演習I,IIを修得していないため)');
                   }
                   if (credit < 99){
-                      promotion = 0;
-                      swal('留年');
+                      swal('留年\n(進級要件を満たしていないため)');
                   }
               }
               if (credit == ""){
                       swal('単位を入力してください')
                   }
+              if (grade == 3 && zemi == 0){
+                  swal('3年生の方はシステム演習の修得有無を教えてください')
+              }
           });
       </script>
 
