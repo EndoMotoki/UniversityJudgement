@@ -21,7 +21,7 @@
 <h1>基礎科目</h1>
 <h2 class="display-4">英語</h2>
 <div class="input-group mb-5">
-  <input class="form-control form-control-lg" type="tel" placeholder="英語の修得単位を入力してください" id="english" maxlength="2" required>
+  <input class="form-control form-control-lg" type="tel" placeholder="英語の修得単位を入力してください" id="english" maxlength="2">
 </div>
 <h2 class="display-4">情報処理</h2>
 <div class="input-group mb-5">
@@ -61,10 +61,6 @@
 <div class="input-group mb-5">
   <input class="form-control form-control-lg" type="tel" placeholder="外国語の修得単位を入力してください" id="language" maxlength="2">
 </div>
-<h2 class="display-4">外国語自由聴講科目</h2>
-<div class="input-group mb-5">
-  <input class="form-control form-control-lg" type="tel" placeholder="外国語自由聴講科目の修得単位を入力してください" id="language-free" maxlength="2">
-</div>
 
 <h1>専門科目</h1>
 <h2 class="display-4">専門基礎科目</h2>
@@ -77,7 +73,7 @@
 </div>
 <h2 class="display-4">専門共通科目</h2>
 <div class="input-group mb-5">
-  <input class="form-control form-control-lg" type="tel" placeholder="専門共通科目の修得単位を入力してください" id="expert-c" maxlength="2">
+  <input class="form-control form-control-lg" type="tel" placeholder="専門共通科目の修得単位を入力してください" id="expert_c" maxlength="2">
 </div>
 <h2 class="display-4">展開科目</h2>
 <div class="input-group mb-5">
@@ -91,6 +87,238 @@
 <div class="input-group mb-5">
   <input class="form-control form-control-lg" type="tel" placeholder="研究科目の修得単位を入力してください" id="research" maxlength="2">
 </div>
+
+<!--判定ボタン-->
+<div class="col text-center mb-4">
+    <button class="btn btn-primary btn-lg btn-block" id="result">計算</button> <!--ボタンを横いっぱいに配置-->
+  </div>
+  <br>
+  <h1 class="center">あなたの成績<br></h1>
+  <br>
+  <div>
+    <h2 class="center">現時点までの修得単位数:<output name="results" id="total" class="green"></output></h2>
+</div>
+
+<h2>英語:<output class="green" id="english_check"></output></h2>
+<h2>情報処理:<output class="green" id="infomation_check"></output></h2>
+<h2>入門演習<output class="green" id="introduction_check"></output></h2>
+<h2>地域学習:<output class="green" id="area_check"></output></h2>
+<h2>領域科目:<output class="green" id="region_check"></output></h2>
+<h2>テーマ科目:<output class="green" id="theme_check"></output></h2>
+<h2>プロジェクト科目:<output class="green" id="project_check"></output></h2>
+<h1>教養科目:<output class="green" id="general_check"></output></h1>
+<h2>保健体育:<output class="green" id="pe_check"></output></h2>
+<h2>外国語:<output class="green" id="language_check"></output></h2>
+<h2>専門基礎科目:<output class="green" id="expert_check"></output></h2>
+<h1 class="center">キャリア・専門・展開・関連科目:</h1>
+<h2>研究科目:<output class="green" id="research_check"></output></h2>
+
+<br><br>
+<!--
+<h1 class="center green">基盤教育科目:<output id="general_check"></output></h1>
+<h1 class="center green">専門科目全体:<output id="expert_total_check"></output></h1>
+<h1 class="center green">卒業ジャッジ:<output id="graduation_check"></output></h1>
+-->
+
+  <script>
+    var result = document.getElementById("result");
+    result.addEventListener("click",function(d){
+        d.preventDefault();
+        var english = document.getElementById("english").value;
+        var infomation = document.getElementById("infomation").value;
+        var introduction = document.getElementById("introduction").value;
+        var area = document.getElementById("area").value;
+        var region = document.getElementById("region").value;
+        var theme = document.getElementById("theme").value;
+        var project = document.getElementById("project").value;
+        var pe = document.getElementById("pe").value;
+        var language = document.getElementById("language").value;
+        var expert = document.getElementById("expert").value;
+        var career = document.getElementById("career").value;
+        var expert_c = document.getElementById("expert_c").value;
+        var deploy = document.getElementById("deploy").value;
+        var relation = document.getElementById("relation").value;
+        var research = document.getElementById("research").value;
+
+        var sum = parseInt(english,10) + parseInt(infomation,10) + parseInt(introduction,10) + parseInt(area,10)
+        + parseInt(region,10) + parseInt(theme,10) + parseInt(project,10) + parseInt(pe,10) + parseInt(language,10)
+        + parseInt(expert,10) + parseInt(career,10) + parseInt(expert_c,10) + parseInt(deploy,10) + parseInt(relation,10)
+        + parseInt(research,10);
+        var total = document.getElementById("total");
+        total.value = Math.floor(sum);
+
+        //科目の合否判定
+
+        var english_check = document.getElementById("english_check");
+        if(english>=8){
+            english_check.innerHTML = "OK";
+        }
+        else if(english<8){
+            var c = english - 8
+            english_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+        }
+
+        var infomation_check = document.getElementById("infomation_check");
+        if(infomation>=2){
+            infomation_check.innerHTML = "OK";
+        }
+        else if(infomation<2){
+            var c = infomation - 2
+            infomation_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+        }
+
+        var introduction_check = document.getElementById("introduction_check");
+        if(introduction>=2){
+            introduction_check.innerHTML = "OK";
+        }
+        else if(introduction<2){
+            var c = introduction - 2
+            introduction_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+        }
+
+        //地域学習 area
+        var area_check = document.getElementById("area_check");
+        if(area>=2){
+            area_check.innerHTML = "OK";
+        }
+        else if(area<2){
+            var c = area - 2
+            area_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+        }
+
+        //領域科目 region
+        var region_check = document.getElementById("region_check");
+        if(region>=4){
+            region_check.innerHTML = "OK";
+        }
+        else if(region<4){
+            var c = region - 4
+            region_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません"+"(領域科目は4単位以上修得する必要があります)";
+        }
+
+        //テーマ科目 theme
+        var theme_check = document.getElementById("theme_check");
+        if(theme>=4){
+            theme_check.innerHTML = "OK";
+        }
+        else if(theme<4){
+            var c = theme - 4
+            theme_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません"+"(テーマ科目は4単位以上修得する必要があります)";
+        }
+
+
+        //プロジェクト科目 project
+        var project_check = document.getElementById("project_check");
+        project_check.innerHTML = "OK";
+
+        //保健体育 pe
+        var pe_check = document.getElementById("pe_check");
+        if(pe>=1){
+            pe_check.innerHTML = "OK";
+        }
+        else if(pe<1){
+            var c = pe - 1
+            pe_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+        }
+
+        //外国語 language
+        var language_check = document.getElementById("language_check");
+        if(language>=4){
+            language_check.innerHTML = "OK";
+        }
+        else if(language<4){
+            var c = language - 4
+            language_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+        }
+
+        //専門基礎科目 expert
+        var expert_check = document.getElementById("expert_check");
+        if(expert>=3){
+            expert_check.innerHTML = "OK";
+        }
+        else if(expert<3){
+            var c = expert - 3
+            expert_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+        }
+
+        //キャリア学習科目 career
+        var career_check = document.getElementById("career_check");
+        if(career>=6){
+            career_check.innerHTML = "OK";
+        }
+        else if(career<6){
+            var c = career - 6
+            career_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません(キャリア学習科目の必修の単位が6単位です)";
+        }
+
+        //専門共通科目 expert_c
+        var expert_c_check = document.getElementById("expert_c_check");
+        if(expert_c>=38){
+            expert_c_check.innerHTML = "OK";
+        }
+        else if(expert_c<38){
+            var c = expert_c - 38
+            expert_c_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません(専門共通科目の必修の単位が38単位です)";
+        }
+
+        //展開科目 deploy
+        var deploy_check = document.getElementById("deploy_check");
+        deploy_check.innerHTML = "OK";
+
+        //関連科目 relation
+        var relation_check = document.getElementById("relation_check");
+        if(relation>=8){
+            relation_check.innerHTML = "OK";
+        }
+        else if(relation<8){
+            var c = relation - 8
+            relation_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません(関連科目の必修の単位が8単位です)";
+        }
+
+        //研究科目 research
+        var research_check = document.getElementById("research_check");
+        if(research>=8){
+            research_check.innerHTML = "OK";
+        }
+        else if(research<8){
+            var c = research - 8
+            research_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません(研究科目の必修の単位が8単位です)";
+        }
+
+    
+        //教養科目 general
+        var general_check = document.getElementById("general_check");
+        var general_total_score = parseInt(region,10) + parseInt(theme,10) + parseInt(project,10);
+        general_total = Math.floor(general_total_score);
+
+        if(general_total<12){
+            general_check.innerHTML = "NG(領域・テーマ・プロジェクト科目の合計単位が12単位以上必要です)";
+        }
+        else if(general_total>=12){
+            general_check.innerHTML = "OK";
+        }
+
+        //専門科目全体  expert_total
+        var expert_total_check = document.getElementById("expert_total_check");
+        var expert_total_score = parseInt(career,10) + parseInt(expert_c,10) + parseInt(deploy,10) + parseInt(relation,10)
+        + parseInt(research,10);
+        expert_total = Math.floor(expert_total_score);
+
+        if(expert_total<82){
+            expert_total_check.innerHTML = "NG(キャリア学習科目・専門共通科目・展開科目・関連科目で選択と必修科目の単位が合計で82単位以上必要です)";
+        }
+        else if(expert_total>=82){
+            expert_total_check.innerHTML = "OK";
+        }
+
+        //卒業要件 Graduation
+
+
+
+        
+
+    });
+    </script>
 
 
 
