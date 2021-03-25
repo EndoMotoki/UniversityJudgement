@@ -5,7 +5,7 @@
     <meta name="description" content="進級・卒業判定サービスfor岩手県立大学">
     <meta name="keywords" content="運命のジャッジメント,運命ジャッジメント,岩手県立大学,岩手県立大学単位">
     <meta name="author" content="EndoMotoki">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no">
     <meta charset="UTF-8">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -14,13 +14,33 @@
 </head>
 
 <body>
+
+<div class='fixed-top'>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">岩手県立大学 進級・卒業ジャッジメント</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="graduation.html">卒業ジャッジメント</a>
+                <a class="nav-item nav-link" href="promotion.html">進級ジャッジメント</a>
+                <a class="nav-item nav-link" href="index.html">ホーム</a>
+            </div>
+        </div>
+    </nav>
+</div>
+
 <h1 class="display-4 center">卒業ジャッジ</h1>
 <br>
 <!-- <h1 class="display-4 green center">卒業ジャッジは現在開発中です。</h1> -->
 
+<br><br>
+<h1 class="center">2018年度入学・ソフトウェア情報学部 向け</h1>
 <h1>基礎科目</h1>
+
 <h2 class="display-4">英語(必修)</h2>
-<div class="input-group mb-5">
+<div class="input-group input-group-lg">
   <input class="form-control form-control-lg" type="tel" placeholder="英語の修得単位を入力してください" id="english" maxlength="2">
 </div>
 <h2 class="display-4">情報処理(必修)</h2>
@@ -103,9 +123,14 @@
     <input class="form-control form-control-lg" type="tel" placeholder="関連科目の修得単位を入力してください" id="relation_choice" maxlength="2">
 </div>
 
-<h2 class="display-4">研究科目</h2>
+<h2 class="display-4">研究科目(必修)</h2>
 <div class="input-group mb-5">
   <input class="form-control form-control-lg" type="tel" placeholder="研究科目の修得単位を入力してください" id="research" maxlength="2">
+</div>
+
+<h2 class="display-4">研究科目(選択)</h2>
+<div class="input-group mb-5">
+    <input class="form-control form-control-lg" type="tel" placeholder="研究科目の修得単位を入力してください" id="research_choice" maxlength="2">
 </div>
 
 <!--判定ボタン-->
@@ -117,10 +142,14 @@
   <br>
   <div>
     <h2 class="center">現時点までの修得単位数:<output name="results" id="total" class="green"></output></h2>
+      <h2><output name="check" id="judge" class="green"></output> </h2>
   </div>
+<div>
 
-<h2>英語:<output class="green" id="english_check"></output></h2>
-<h2>情報処理:<output class="green" id="infomation_check"></output></h2>
+    <br><br>
+
+<!-- <h2>英語:<output class="green" id="english_check"></output></h2> -->
+<!--<h2>情報処理:<output class="green" id="infomation_check"></output></h2>
 <h2>入門演習<output class="green" id="introduction_check"></output></h2>
 <h2>地域学習:<output class="green" id="area_check"></output></h2>
 <h2>領域科目:<output class="green" id="region_check"></output></h2>
@@ -130,10 +159,114 @@
 <h2>外国語:<output class="green" id="language_check"></output></h2>
 <h2>専門基礎科目:<output class="green" id="expert_check"></output></h2>
 <h2>キャリア学習科目(必修):<output class="green" id="career_check"></output></h2>
-<h2>キャリア学習・専門共通・関連科目(選択):<output class="green" id="expert_choice_check"></output></h2>
+<h2 class="attention">キャリア学習・専門共通・関連科目(選択):<output class="attention" id="expert_choice_check"></output></h2>
 <h2>専門共通科目(必修):<output class="green" id="expert_c_check"></output></h2>
 <h2>関連科目(必修):<output class="green" id="relation_check"></output></h2>
-<h2>研究科目:<output class="green" id="research_check"></output></h2>
+<h2>研究科目(必修):<output class="green" id="research_check"></output></h2>
+<h2>研究科目(選択):<output class="green" id="research_choice_check"></output></h2>-->
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th class="center">科目名</th>
+        <th class="center">ジャッジ</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row"><h2>英語</h2></th>
+        <td><h2><output class="green" id="english_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>情報処理</h2></th>
+        <td><h2><output class="green" id="infomation_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>入門演習</h2></th>
+        <td><h2><output class="green" id="introduction_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>地域学習</h2></th>
+        <td><h2><output class="green" id="area_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>領域科目</h2></th>
+        <td><h2><output class="green" id="region_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>テーマ科目</h2></th>
+        <td><h2><output class="green" id="theme_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>プロジェクト科目</h2></th>
+        <td><h2><output class="green" id="project_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>保健体育</h2></th>
+        <td><h2><output class="green" id="pe_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>外国語</h2></th>
+        <td><h2><output class="green" id="language_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>専門基礎科目</h2></th>
+        <td><h2><output class="green" id="expert_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>キャリア学習科目(必修)</h2></th>
+        <td><h2><output class="green" id="career_check"></output></h2></td>
+    </tr>
+    <tr class="table-warning">
+        <th scope="row" class="attention"><span class="badge badge-warning">卒業ジャッジ</span><h2>教養科目(選択12単位以上)</h2></th>
+        <td><h2><output class="green" id="liberal_choice_check"></output></h2></td>
+    </tr>
+    <tr class="table-warning">
+        <th scope="row" class="attention"><span class="badge badge-warning">卒業ジャッジ</span><h2>キャリア学習・専門共通・関連科目(選択)</h2></th>
+        <td><h2><output class="green" id="expert_choice_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>専門共通科目(必修)</h2></th>
+        <td><h2><output class="green" id="expert_c_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>関連科目(必修)</h2></th>
+        <td><h2><output class="green" id="relation_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>研究科目(必修)</h2></th>
+        <td><h2><output class="green" id="research_check"></output></h2></td>
+    </tr>
+    <tr>
+        <th scope="row"><h2>研究科目(選択)</h2></th>
+        <td><h2><output class="green" id="research_choice_check"></output></h2></td>
+    </tr>
+    </tbody>
+</table>
+
+    <br><br>
+    <h1 class="attention center">科目別の見方について</h1>
+    <h3>「OK」はその科目の卒業要件を満たしているとジャッジ(判定)された際に表示されます。</h3>
+    <h3>「NG」はその科目の卒業要件を満たしていないとジャッジ(判定)された際に表示されます。</h3>
+    <h3>「あと○何単位足りません」と表示された場合は、その単位数以上を履修登録してください。(必修であれば必修科目、選択であれば選択科目)</h3>
+    <h3><span class="badge badge-warning">卒業ジャッジ</span>というラベルがついている科目は、複数の科目の合計が○○単位以上必要な科目です。このラベルが付いている科目で「NG」と表示された際は、その単位数以上をその科目で満たすように履修登録してください。</h3>
+    <br>
+
+    <h1 class="attention center">卒業要件について</h1>
+    <h3>教養科目は、領域科目4単位テーマ科目4単位を含めて合計12単位以上修得する必要があります。</h3>
+    <h3>教養科目は   <span class="badge badge-warning">卒業ジャッジ</span>教養科目(選択12単位以上)の箇所で判定されますのでご確認ください。</h3>
+    <br>
+    <h3>専門科目は、キャリア学習・専門共通・関連科目で合計30単位以上修得する必要があります。</h3>
+    <h3>専門科目は   <span class="badge badge-warning">卒業ジャッジ</span>キャリア学習・専門共通・関連科目(選択)の箇所で判定されますのでご確認ください。</h3>
+    <br>
+    <h3>外国語は、同一外国語に関わるIとIIをセットで4単位以上とる必要があります。</h3>
+    <br>
+
+    <h1 class="attention center">成績の結果について</h1>
+    <h3>現在、岩手県立大学 進級・卒業ジャッジメントは開発中です。</h3>
+    <h3>現時点では成績の計算などにミスがある可能性もありますので最終的な卒業の判定の際には必ずご自身でもチェックをしてください。</h3>
+    <h3>もし、バグや機能のリクエストなどがあれば以下の連絡先までお願いいたします。</h3>
+    <h3>遠藤幹(motoki@apphub.jp)</h3>
 
 <!--
 <h1 class="center green">基盤教育科目:<output id="general_check"></output></h1>
@@ -163,10 +296,12 @@
         var career_choice = document.getElementById("career_choice").value;
         var expert_choice = document.getElementById("expert_choice").value;
         var relation_choice = document.getElementById("relation_choice").value;
+        var research_choice = document.getElementById("research_choice").value;
+        var judge = document.getElementById("judge");
 
         var sum = parseInt(english,10) + parseInt(infomation,10) + parseInt(introduction,10) + parseInt(area,10)
         + parseInt(region,10) + parseInt(theme,10) + parseInt(project,10) + parseInt(pe,10) + parseInt(language,10)
-        + parseInt(expert,10) + parseInt(career,10) + parseInt(expert_c,10) + parseInt(deploy,10) + parseInt(relation,10)
+        + parseInt(expert,10) + parseInt(career,10) + parseInt(career_choice) + parseInt(expert_c,10) + parseInt(expert_choice) + parseInt(deploy,10) + parseInt(relation,10) + parseInt(relation_choice)
         + parseInt(research,10);
         var total = document.getElementById("total");
         total.value = Math.floor(sum);
@@ -179,7 +314,7 @@
         }
         else if(english<8){
             var c = english - 8;
-            english_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+            english_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         var infomation_check = document.getElementById("infomation_check");
@@ -188,7 +323,7 @@
         }
         else if(infomation<2){
             var c = infomation - 2;
-            infomation_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+            infomation_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         var introduction_check = document.getElementById("introduction_check");
@@ -197,7 +332,7 @@
         }
         else if(introduction<2){
             var c = introduction - 2;
-            introduction_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+            introduction_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //地域学習 area
@@ -207,7 +342,7 @@
         }
         else if(area<2){
             var c = area - 2;
-            area_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+            area_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //領域科目 region
@@ -217,7 +352,7 @@
         }
         else if(region<4){
             var c = region - 4;
-            region_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません"+"(領域科目は4単位以上修得する必要があります)";
+            region_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //テーマ科目 theme
@@ -227,7 +362,7 @@
         }
         else if(theme<4){
             var c = theme - 4;
-            theme_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません"+"(テーマ科目は4単位以上修得する必要があります)";
+            theme_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
 
@@ -242,7 +377,7 @@
         }
         else if(pe<1){
             var c = pe - 1;
-            pe_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+            pe_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //外国語 language
@@ -252,7 +387,7 @@
         }
         else if(language<4){
             var c = language - 4;
-            language_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+            language_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //専門基礎科目 expert
@@ -262,7 +397,7 @@
         }
         else if(expert<3){
             var c = expert - 3;
-            expert_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません";
+            expert_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //キャリア学習科目 career
@@ -272,7 +407,7 @@
         }
         else if(career<6){
             var c = career - 6;
-            career_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません(キャリア学習科目の必修の単位が6単位です)";
+            career_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //専門共通科目 expert_c
@@ -282,7 +417,7 @@
         }
         else if(expert_c<38){
             var c = expert_c - 38;
-            expert_c_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません(専門共通科目の必修の単位が38単位です)";
+            expert_c_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //展開科目 deploy
@@ -296,7 +431,7 @@
         }
         else if(relation<8){
             var c = relation - 8;
-            relation_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません(関連科目の必修の単位が8単位です)";
+            relation_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //研究科目 research
@@ -305,8 +440,18 @@
             research_check.innerHTML = "OK";
         }
         else if(research<8){
-            var R = research - 8;
-            research_check.innerHTML = "NG"+" \n"+"あと"+Math.abs(c)+"単位足りません(研究科目の必修の単位が8単位です)";
+            var c = research - 8;
+            research_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
+        }
+
+        //研究科目の選択
+        var research_choice_check = document.getElementById("research_choice_check");
+        if(research_choice>=8){
+            research_choice_check.innerHTML = "OK";
+        }
+        else if(research_choice<8){
+            var c = research_choice - 8;
+            research_choice_check.innerHTML = "NG"+"<br>"+"あと"+Math.abs(c)+"単位足りません";
         }
 
         //専門科目の選択科目
@@ -320,8 +465,40 @@
         }
         else if(sum_expert_choice<30){
             var c = sum_expert_choice - 30;
-            expert_choice_check.innerHTML = "選択単位の合計が卒業要件に満たしていません。"+"(あと"+Math.abs(c)+"単位必要)";
+            expert_choice_check.innerHTML = "NG"+"<br>"+"選択単位の合計が卒業要件を満たしていません"+"(あと"+Math.abs(c)+"単位足りません)";
         }
+
+        //教養科目の選択12単位以上チェック
+        var liberal_choice_check = document.getElementById("liberal_choice_check");
+        var total_liberal_choice = parseInt(region,10) + parseInt(theme,10) + parseInt(project,10);
+
+        if((region>=4)&&(theme>=4)){
+            if(total_liberal_choice >= 12){
+                liberal_choice_check.innerHTML = "OK";
+            }
+            else{
+                liberal_choice_check.innerHTML = "NG"+"<br>"+"選択単位の合計が卒業要件に満たしていません";
+            }
+        }
+
+        //単位のジャッジ
+        if(sum >= 132) {
+            judge.innerHTML = "卒業要件の単位を満たしています！(↓の科目別成績が全てOKであれば卒業です！！パチパチパチ)";
+        }
+
+
+        /*単位のジャッジTotal
+        if((english>=8)&&(infomation>=2)&&(introduction>=2)&&(area>=2)&&(region>=4)&&(theme>=4)&&(pe>=1)&&(language>=4)&&(expert>=3)&&(career>=6)&&(expert_c>=38)&&(relation>=8)&&(research>=8)&&(research_choice>=8)&&(sum_expert_choice>=30)
+        ) {
+            if (total_liberal_choice >= 12) {
+                if (total >= 132) {
+                    judge.innerHTML = "卒業おめでとう！！";
+                }
+            }
+        }
+        */
+
+
 
     });
     </script>
