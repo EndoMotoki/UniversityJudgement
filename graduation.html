@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>運命のジャッジメント</title>
-    <meta name="description" content="進級・卒業判定サービスfor岩手県立大学">
-    <meta name="keywords" content="運命のジャッジメント,運命ジャッジメント,岩手県立大学,岩手県立大学単位">
+    <title>岩手県立大学 進級・卒業ジャッジメント</title>
+    <meta name="description" content="岩手県立大学生による岩手県立大学生のためのサービス">
+    <meta name="keywords" content="運命のジャッジメント,運命ジャッジメント,岩手県立大学,岩手県立大学単位,岩手県立大学 進級,岩手県立大学 卒業">
     <meta name="author" content="EndoMotoki">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no,shrink-to-fit=no">
     <meta charset="UTF-8">
@@ -11,35 +11,38 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/inter.css">
-</head>
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+
 
 <body>
 
-<div class='fixed-top'>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">岩手県立大学 進級・卒業ジャッジメント</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="graduation.html">卒業ジャッジメント</a>
-                <a class="nav-item nav-link" href="promotion.html">進級ジャッジメント</a>
-                <a class="nav-item nav-link" href="index.html">ホーム</a>
-            </div>
-        </div>
-    </nav>
-</div>
+
+
+
 
 <h1 class="display-4 center">卒業ジャッジ</h1>
 <br>
 <!-- <h1 class="display-4 green center">卒業ジャッジは現在開発中です。</h1> -->
 
-<br><br>
-<h1 class="center">2018年度入学・ソフトウェア情報学部 向け</h1>
-<h1>基礎科目</h1>
 
-<h2 class="display-4">英語(必修)</h2>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-5 center">2018年度入学・ソフトウェア情報学部対象</h1>
+    </div>
+</div>
+<h2>科目ごとに単位数を入力してください。全ての科目を入力し終えたら「計算」ボタンを押すとジャッジされます。</h2>
+<h2>科目によっては「選択」と「必修」で入力が分かれていますのでご注意ください。</h2>
+<h2>1単位も修得していない科目は0と入力してください。</h2>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">基礎科目</h1>
+    </div>
+</div>
+
+<h2 class="display-4">英語</h2>
 <div class="input-group input-group-lg">
   <input class="form-control form-control-lg" type="tel" placeholder="英語の修得単位を入力してください" id="english" maxlength="2">
 </div>
@@ -56,7 +59,12 @@
   <input class="form-control form-control-lg" type="tel" placeholder="地域学習の修得単位を入力してください" id="area" maxlength="2">
 </div>
 
-<h1>教養科目</h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">教養科目</h1>
+    </div>
+</div>
+
 <h2 class="display-4">領域科目(選択)</h2>
 <div class="input-group mb-5">
   <input class="form-control form-control-lg" type="tel" placeholder="領域科目の修得単位を入力してください" id="region" maxlength="2">
@@ -70,19 +78,34 @@
   <input class="form-control form-control-lg" type="tel" placeholder="プロジェクト科目の修得単位を入力してください" id="project" maxlength="2">
 </div>
 
-<h1>保健体育</h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">保健体育</h1>
+    </div>
+</div>
+
 <h2 class="display-4">保健体育(選択)</h2>
 <div class="input-group mb-5">
   <input class="form-control form-control-lg" type="tel" placeholder="保健体育の修得単位を入力してください" id="pe" maxlength="2">
 </div>
 
-<h1>外国語</h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">外国語</h1>
+    </div>
+</div>
+
 <h2 class="display-4">外国語(選択)</h2>
 <div class="input-group mb-5">
   <input class="form-control form-control-lg" type="tel" placeholder="外国語の修得単位を入力してください" id="language" maxlength="2">
 </div>
 
-<h1>専門科目</h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">専門科目</h1>
+    </div>
+</div>
+
 <h2 class="display-4">専門基礎科目</h2>
 <div class="input-group mb-5">
   <input class="form-control form-control-lg" type="tel" placeholder="専門基礎科目の修得単位を入力してください" id="expert" maxlength="2">
@@ -138,7 +161,11 @@
     <button class="btn btn-primary btn-lg btn-block" id="result">計算</button> <!--ボタンを横いっぱいに配置-->
   </div>
   <br>
-  <h1 class="center">あなたの成績(科目別)<br></h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3 center">あなたの成績</h1>
+    </div>
+</div>
   <br>
   <div>
     <h2 class="center">現時点までの修得単位数:<output name="results" id="total" class="green"></output></h2>
@@ -502,8 +529,18 @@
 
     });
     </script>
-
-
+<!--
+    <footer>
+        <div class="copyright">
+            <p>© EndoMotoki</p>
+        </div>
+        <div class="sns">
+            <a href="mailto:motoki@apphub.jp" class="contact">メール</a>
+            <a href="https://github.com/EndoMotoki" target="_blank" class="fb">GitHub</a>
+            <a href="https://blog.endomotoki.com" target="_blank" class="tw"><i class="fa fa-twitter fa-fw" aria-hidden="true">BLOG</i></a>
+            <a href="https://endomotoki.com" target="_blank" class="insta"><i class="fa fa-instagram fa-fw" aria-hidden="true">PortFolio</i></a>
+        </div>
+        -->ß
 
 </body>
 </html>
